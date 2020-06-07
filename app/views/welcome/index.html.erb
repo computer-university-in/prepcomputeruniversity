@@ -1,0 +1,84 @@
+<head>
+  <style>
+    body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.428571429;
+  color: #333333;
+  background-color: #fff;
+}
+    #newsfeed > h4 {
+  text-align: center;
+  padding: 10px;
+}
+
+#intro {
+  margin-top: 125px;
+  padding: 10px 50px;
+  text-align: center;
+  h1 {
+    color: $navbar-color;
+    font-weight: 300 !important;
+  }
+
+  p {
+    font-size: 1.65rem;
+    line-height: 3rem;
+  }
+}
+
+#img-preview {
+  padding: 5px;
+  display: inline-block;
+  border: 1px solid $border-color;
+  img {
+    width: 35px;
+    height: 35px;
+  }
+}
+    .card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 30%;
+  }
+
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+
+  .container {
+    padding: 2px 16px;
+  }
+</style>
+</head>
+<div class="row">
+<% if user_signed_in? %>
+<div id="newsfeed" class="col-lg-13">
+  Logged in as <strong><%= current_user.email %></strong>.
+  <br>
+  <br>
+  <div class="card">
+  	<%=image_tag("rsz_culogo.png",style: 'width:100%') %>
+  		<div class="container">
+    		<h3><b>Internet of Things MCQ</b></h3>
+    		<h4>by P.N. Jain</h4>
+    		<br>
+    		<h4><a href="/pnjs/new">Start Test</a></h4>
+        <% if current_user.studentid == "professor" %>
+          <p><a href="/pnjs">Check all</a></p>
+        <% else %>
+        <% end %>
+  		</div>
+		</div>
+</div>
+<% else %>
+<div id="newsfeed" class="col-lg-6">
+  <h1>Hello, World!</h1>
+  <p style="font-size:20px">prep@Computer University is an open source platform for online preparations</p>
+  </div>
+  <div id="intro" class="col-lg-6">
+    <%=image_tag("rsz_culogo.png", size: "573x319") %>
+  </div>
+<% end %>
+
+</div>

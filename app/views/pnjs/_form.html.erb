@@ -1,0 +1,41 @@
+
+<%= form_with(model: pnj, local: true) do |form| %>
+  <% if pnj.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pnj.errors.count, "error") %> prohibited this pnj from being saved:</h2>
+
+      <ul>
+        <% pnj.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field" >
+    <%= form.label :q1, "Question 1" %>
+    <br>
+    <%= form.radio_button :q1, 'email', :checked => true %>
+    <%= label :q1_email, 'Email',:style => "display:inline" %>
+    <div class="card">
+      <%=image_tag("rsz_culogo.png",style: 'width:100%') %>
+    </div>
+    <br>
+    <%= form.radio_button :q1, 'sms' %>
+    <%= label :q1_sms, 'SMS',:style => "display:inline" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :q2, "Question 2"%>
+    <br>
+    <%= form.radio_button :q2, 'email', :checked => true %>
+    <%= label :q2_email, 'Email',:style => "display:inline" %>
+    <br>
+    <%= form.radio_button :q2, 'sms' %>
+    <%= label :q2_sms, 'SMS',:style => "display:inline" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

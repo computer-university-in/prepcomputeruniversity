@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Pnjs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Studentid</th>
+      <th>Name</th>
+      <th>Q1</th>
+      <th>Q2</th>
+      <th>Score</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+<% myupdate %>
+  <tbody>
+    <% @pnjs.each do |pnj| %>
+      <tr>
+        <td><%= pnj.studentid %></td>
+        <td><%= @users.where(studentid: pnj.studentid).first.name %>
+        <td><%= pnj.q1 %></td>
+        <td><%= pnj.q2 %></td>
+        <td><%= pnj.score %></td>
+        <td><%= link_to 'Show', pnj %></td>
+        <td><%= link_to 'Edit', edit_pnj_path(pnj) %></td>
+        <td><%= link_to 'Destroy', pnj, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= button_to 'Send Email', myemail_path(studentid: @users.where(studentid: pnj.studentid).first.studentid) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+<%= link_to 'New Pnj', new_pnj_path %>

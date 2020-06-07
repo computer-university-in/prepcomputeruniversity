@@ -1,0 +1,21 @@
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+
+<nav class="navbar" style="background-color: #005686;">
+  <div class="container">
+    <div class="navbar-header">
+      <a href='/' style="font-size:20px;font-weight:600; font-family:'Montserrat', sans-serif; color:white; text-decoration:none;">prep@Computer University</a>
+    </div>
+  <form class="form-inline">
+    <% if user_signed_in? %>
+      <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link btn btn-outline-success',:style => "font-family:'Montserrat', sans-serif;color:white" %>
+      <div style="padding-left: 10px;">
+        <%= link_to 'Sign out', destroy_user_session_path, :class => 'btn btn-outline-success',:style => "font-family:'Montserrat', sans-serif;color:white",:method => :delete  %>
+      </div>
+    <% else %>
+      <%= link_to "Login", new_user_session_path, :class => 'navbar-link btn btn-outline-primary', :style => "font-family:'Montserrat', sans-serif;color:white"  %>
+      <div style="padding-left: 10px;">
+       <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link btn btn-outline-primary',:style => "font-family:'Montserrat', sans-serif;color:white"  %>
+      </div>
+    <% end %>
+  </form>
+</nav>
