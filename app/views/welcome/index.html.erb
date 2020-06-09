@@ -39,7 +39,7 @@
     .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
-    width: 30%;
+    width: 80%;
   }
 
   .card:hover {
@@ -51,9 +51,7 @@
   }
 </style>
 </head>
-<div class="row">
 <% if user_signed_in? %>
-<div id="newsfeed" class="col-lg-13">
   Logged in as <strong><%= current_user.email %></strong>.
   <br>
   <br>
@@ -65,13 +63,13 @@
     		<br>
     		<h4><a href="/pnjs/new">Start Test</a></h4>
         <% if current_user.studentid == "professor" %>
-          <p><a href="/pnjs">Check all</a></p>
+          <h4><a href="/pnjs">Check all</a></h4>
         <% else %>
         <% end %>
   		</div>
 		</div>
-</div>
-<% else %>
+              <% else %>
+<div class="row">
 <div id="newsfeed" class="col-lg-6">
   <h1>Hello, World!</h1>
   <p style="font-size:20px">prep@Computer University is an open source platform for online preparations</p>

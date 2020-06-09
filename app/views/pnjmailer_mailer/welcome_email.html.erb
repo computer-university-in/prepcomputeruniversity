@@ -5,15 +5,17 @@
    </head>
 
    <body>
-      <h1>Welcome to example.com, <%= @user.name %></h1>
-
+      <h1>Thank you for submitting your response!</h1>
       <p>
-         You have successfully signed up to example.com,your username is:
+        Dear, <%= @user.name %>
+      </p>
+        
+      <p>
+        Your Score is : <%= @score %> 
       </p>
 
       <p>
-         To login to the site, just follow this link:
-         <%= @url %>.
+        Your hardwork has paid off.
       </p>
 
       <p>Thanks for joining and have a great day!</p>

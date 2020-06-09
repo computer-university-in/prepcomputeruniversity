@@ -83,7 +83,8 @@ class PnjsController < ApplicationController
   def myemail
     userstudentid = params[:studentid]
     user = User.where(studentid: userstudentid).first
-    PnjmailerMailer.welcome_email(user).deliver_later
+    score = Pnj.where(studentid: userstudentid).first.score
+    PnjmailerMailer.welcome_email(user,score).deliver_later
   end
 
   helper_method :myupdate, :myemail
@@ -92,7 +93,7 @@ class PnjsController < ApplicationController
   def destroy
     @pnj.destroy
     respond_to do |format|
-      format.html { redirect_to pnjs_url, notice: 'Pnj was successfully destroyed.' }
+      format.html { redirect_to(pnjs_url, notice: "#{@pnj.studentid} was successfully destroyed.") }
       format.json { head :no_content }
     end
   end

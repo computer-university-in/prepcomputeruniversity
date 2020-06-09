@@ -1,9 +1,9 @@
 class PnjmailerMailer < ApplicationMailer
-  default from: 'notifications@example.com'
+  default from: 'professor@computeruniversity.in'
 
-   def welcome_email(user)
+   def welcome_email(user,score)
       @user = user
-      @url  = 'http://www.gmail.com'
-      mail(to: @user.email, subject: 'Welcome to My Awesome Site')
+      @score = score
+      mail(to: @user.email, subject: 'Your recent test score is ready!')
    end
 end
